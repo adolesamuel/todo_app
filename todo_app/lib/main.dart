@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'models/global.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,28 +39,66 @@ class _MyHomePageState extends State<MyHomePage> {
           length: 3,
           child: new Scaffold(
             body:
-                 TabBarView(children: [new Container(color: Colors.yellow,),
-                          new Container(color: Colors.orange,),
-                          new Container(color: Colors.lightGreen,),],
-                          ),
+                 Stack(
+                      children: <Widget>[ 
+                        TabBarView(children: [new Container(color: darkGreyColor,),
+                            new Container(color: Colors.orange,),
+                            new Container(color: Colors.lightGreen,),],
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(left: 50),
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(50),
+                                  bottomRight: Radius.circular(50),
+                                ),
+                                color: Colors.white,
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                Text("Intray", style:  intrayTitleStyle,),
+                                Container()]
+                              ),
+                              ),
+                              Container(
+                                height: 80,
+                                width: 80,
+                                margin: EdgeInsets.only(top:120,left:MediaQuery.of(context).size.width*0.5-40),
+                                child: FloatingActionButton(
+                                  elevation: 10,
+                                  child: Icon(Icons.add, size: 70,),
+                                  backgroundColor: redColor,
+                                  onPressed: () {},
+                                ),
+                              ),
+
+                              ],
+                 ),
             
-            appBar: new TabBar(
-              tabs: [
-                Tab(
-                  icon: new Icon(Icons.home),
-                ),
-                Tab(
-                  icon: new Icon(Icons.rss_feed),
-                ),
-                Tab(
-                  icon: new Icon(Icons.perm_identity),
-                ),
-              ],
-              labelColor: Colors.yellow,
-              unselectedLabelColor: Colors.blue,
-              indicatorSize: TabBarIndicatorSize.label,
-              indicatorPadding: EdgeInsets.all(5.0),
-              indicatorColor: Colors.red,
+            appBar: AppBar(
+              elevation: 0,
+                          title: new TabBar(
+                tabs: [
+                  Tab(
+                    icon: new Icon(Icons.home),
+                  ),
+                  Tab(
+                    icon: new Icon(Icons.rss_feed),
+                  ),
+                  Tab(
+                    icon: new Icon(Icons.perm_identity),
+                  ),
+                ],
+                labelColor: darkGreyColor,
+                unselectedLabelColor: Colors.blue,
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorPadding: EdgeInsets.all(5.0),
+                indicatorColor: Colors.transparent,
+
+              ),
+              backgroundColor: Colors.white,
             ),
             backgroundColor: Colors.white,
           ),
