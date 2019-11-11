@@ -36,15 +36,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: DefaultTabController(
           length: 3,
           child: new Scaffold(
-            body: Container(
-                          child: Column(
-                            children: <Widget>[
+            body:
                  TabBarView(children: [new Container(color: Colors.yellow,),
                           new Container(color: Colors.orange,),
                           new Container(color: Colors.lightGreen,),],
-                          ),]
                           ),
-            ),
             
             appBar: new TabBar(
               tabs: [
