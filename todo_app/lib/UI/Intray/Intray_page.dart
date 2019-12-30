@@ -42,7 +42,8 @@ class _IntrayPageState extends State<IntrayPage> {
 
   Widget _buildReorderableListSimple(BuildContext context) {
     return Theme(
-        data: ThemeData(canvasColor: darkGreyColor,),
+      //to change the color when highlighted to transparent.
+        data: ThemeData(canvasColor: Colors.transparent,),
           child: ReorderableListView(
           padding: EdgeInsets.only(top: 300.0,),
           children: taskList.map((Task item) => _buildListTile(context, item)).toList(),
