@@ -6,13 +6,15 @@ class IntrayTodo extends StatelessWidget{
   final double buttonspace = 15;
 
   final String title;
+  final String keyValue;
 
-  IntrayTodo({this.title});
+  IntrayTodo({this.keyValue,this.title});
 
   @override
   Widget build(BuildContext context){
     return Container(
-      margin: EdgeInsets.only(bottom: buttonspace, left: buttonspace, right: buttonspace,),
+      key: Key(keyValue),
+      margin: EdgeInsets.only(bottom: 5.0, left: buttonspace, right: buttonspace,),
       padding: EdgeInsets.all(buttonspace),
       height: 100,
       decoration: BoxDecoration(
